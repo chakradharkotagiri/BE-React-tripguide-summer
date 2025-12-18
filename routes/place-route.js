@@ -17,15 +17,16 @@ router.use(checkAuth);
 
 router.post(
   "/",
-  fileUpload.single('image'),
+  checkAuth,
   [
     check("title").not().isEmpty(),
     check("description").isLength({ min: 5 }),
     check("address").not().isEmpty(),
-    check("creator").not().isEmpty()
+    check("image").isString(), 
   ],
   placesControllers.createPlace
 );
+
 
 
 router.patch(

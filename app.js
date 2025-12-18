@@ -16,6 +16,8 @@ const DB_PASSWORD = "Chakri5643";
 const DB_NAME = "PLACESAPP";
 
 const app = express();
+app.use(express.json());
+
 
 app.use(bodyParser.json());
 app.use("/uploads/images", express.static(path.join("uploads", "images")));

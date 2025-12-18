@@ -12,11 +12,11 @@ const MIME_TYPE_MAP = {
 const uploadDir="uploads/images"
 
 const fileUpload = multer({
-  limits: { fileSize: 5000000 }, // corrected limits object
+  limits: { fileSize: 5000000 }, 
   storage: multer.diskStorage({
     destination: (req, file, cb) => {
       console.log('Destination middleware hit');
-      cb(null, uploadDir); // Ensure this path is correct and exists
+      cb(null, uploadDir); 
     },
     filename: (req, file, cb) => {
       const ext = MIME_TYPE_MAP[file.mimetype];
